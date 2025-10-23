@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageButton
+            android:background="#4CAF50"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+        </ImageButton>
+        <TextView
+            android:paddingLeft="90dp"
+            android:paddingTop="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:text="Choose Category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TextView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:background="#E3F2FD"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageButton
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/ic_kinh_foreground"
+            android:background="@drawable/bg_op"
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+        </ImageButton>
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
