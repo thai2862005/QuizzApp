@@ -80,7 +80,6 @@
                     android:layout_height="70dp"
                     android:background="@drawable/bg_btn"
                     android:textColor="@android:color/white"
-                    android:backgroundTint="#0000"
                     android:text="Leaderboard"
                     />
             </LinearLayout>
