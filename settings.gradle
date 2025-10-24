@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "QuizzApp"
 include ':app'
 include ':app:categories_screen'
+include ':app:quiz_question_screen'
