@@ -12,7 +12,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/categories_screen" />
+            <option value="$PROJECT_DIR$/app/login" />
             <option value="$PROJECT_DIR$/app/quiz_question_screen" />
+            <option value="$PROJECT_DIR$/app/results_screen" />
           </set>
         </option>
       </GradleProjectSettings>
