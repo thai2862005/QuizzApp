@@ -72,16 +72,25 @@
                     android:text="Start Quiz"
                     android:textColor="#4CAF50"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp">
+                    android:layout_height="70dp"
+                    android:textStyle="bold"
+                    >
                 </Button>
-                <Button
+                <FrameLayout
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@drawable/bg_btn"
-                    android:textColor="@android:color/white"
-                    android:text="Leaderboard"
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_btn">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="#0000"
+                        android:textColor="@android:color/white"
+                        android:text="Leaderboard"
+                        android:textStyle="bold"
+                        />
+                </FrameLayout>
+
             </LinearLayout>
             <View
                 android:layout_width="120dp"
