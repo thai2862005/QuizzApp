@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizzApp">
         <activity
+            android:name=".Results_screen"
+            android:exported="false" />
+        <activity
+            android:name=".QuizzQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".categories_Screen"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
