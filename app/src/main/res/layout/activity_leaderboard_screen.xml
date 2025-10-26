@@ -22,8 +22,136 @@
             android:layout_width="150dp"
             android:layout_height="30dp"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="280dp"
+        android:layout_height="200dp">
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:paddingTop="40dp"
+            android:orientation="vertical"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/bg_user"
+                android:src="@mipmap/ic_user_foreground"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+        <LinearLayout
+            android:background="#C0C0C0"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:layout_width="80dp"
+            android:layout_height="100dp">
+            <TextView
+                android:layout_gravity="center"
+                android:text="2"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:layout_width="20dp"
+                android:layout_height="40dp">
+                
+            </TextView>
+            <TextView
+                android:layout_gravity="center"
+                android:text="Sarah"
+                android:layout_width="33dp"
+                android:layout_height="15dp"/>
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_gravity="center"
+                android:text="850 pts"
+                android:layout_width="37dp"
+                android:layout_height="15dp"/>
+        </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/bg_user01"
+                android:src="@mipmap/ic_king_foreground"
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+            <LinearLayout
+                android:background="#FFD700"
+                android:orientation="vertical"
+                android:layout_width="80dp"
+                android:layout_height="130dp">
+                <TextView
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp">
+
+                </TextView>
+                <TextView
+                    android:layout_gravity="center"
+                    android:text="Sarah"
+                    android:layout_width="33dp"
+                    android:layout_height="15dp"/>
+                <TextView
+                    android:paddingLeft="5dp"
+                    android:layout_gravity="center"
+                    android:text="950 pts"
+                    android:layout_width="37dp"
+                    android:layout_height="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_marginTop="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_user"
+                android:src="@mipmap/ic_user_foreground"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#CD7F32"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="3"
+                    android:textSize="32dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="33dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:text="Sarah" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="5dp"
+                    android:text="850 pts" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
    <LinearLayout
-       android:layout_marginTop="300dp"
+       android:layout_marginTop="70dp"
        android:orientation="vertical"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
