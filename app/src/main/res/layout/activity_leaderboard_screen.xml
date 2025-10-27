@@ -1,14 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:paddingTop="20dp"
+
     android:layout_height="match_parent">
     <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginLeft="30dp"
         android:background="#4CAF50"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp">
         <ImageView
             android:src="@mipmap/ic_cup_foreground"
@@ -22,134 +21,177 @@
             android:layout_width="150dp"
             android:layout_height="30dp"/>
     </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:layout_marginLeft="-55dp"
+            android:layout_marginBottom="-50dp"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/phaohoa"
+            android:rotation="40"/>
     <LinearLayout
         android:layout_gravity="center"
         android:orientation="horizontal"
         android:layout_width="280dp"
-        android:layout_height="200dp">
+        android:layout_height="match_parent"
+        android:elevation="1dp">
         <LinearLayout
             android:layout_marginRight="20dp"
             android:paddingTop="40dp"
             android:orientation="vertical"
             android:layout_width="80dp"
             android:layout_height="match_parent">
-            <ImageView
-                android:layout_gravity="center"
-                android:background="@drawable/bg_user"
-                android:src="@mipmap/ic_user_foreground"
-                android:layout_width="60dp"
-                android:layout_height="60dp"/>
-        <LinearLayout
-            android:background="#C0C0C0"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical"
-            android:layout_width="80dp"
-            android:layout_height="100dp">
-            <TextView
-                android:layout_gravity="center"
-                android:text="2"
-                android:textSize="32dp"
-                android:textStyle="bold"
-                android:layout_width="20dp"
-                android:layout_height="40dp">
-                
-            </TextView>
-            <TextView
-                android:layout_gravity="center"
-                android:text="Sarah"
-                android:layout_width="33dp"
-                android:layout_height="15dp"/>
-            <TextView
-                android:paddingLeft="5dp"
-                android:layout_gravity="center"
-                android:text="850 pts"
-                android:layout_width="37dp"
-                android:layout_height="15dp"/>
-        </LinearLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_user"
+                    android:src="@mipmap/ic_user_foreground"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:elevation="1dp"
+                    android:layout_marginBottom="40dp"/>
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_leaderboard2"
+                    android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:text="2"
+                            android:textSize="32dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Sarah"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="850 pts"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="80dp"
             android:layout_height="match_parent">
-            <ImageView
-                android:layout_gravity="center"
-                android:background="@drawable/bg_user01"
-                android:src="@mipmap/ic_king_foreground"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
-            <LinearLayout
-                android:background="#FFD700"
-                android:orientation="vertical"
-                android:layout_width="80dp"
-                android:layout_height="130dp">
-                <TextView
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
                     android:layout_gravity="center"
-                    android:text="1"
-                    android:textSize="32dp"
-                    android:textStyle="bold"
-                    android:layout_width="20dp"
-                    android:layout_height="40dp">
-
-                </TextView>
-                <TextView
-                    android:layout_gravity="center"
-                    android:text="Sarah"
-                    android:layout_width="33dp"
-                    android:layout_height="15dp"/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:layout_gravity="center"
-                    android:text="950 pts"
-                    android:layout_width="37dp"
-                    android:layout_height="15dp"/>
-            </LinearLayout>
+                    android:background="@drawable/bg_user01"
+                    android:src="@mipmap/ic_king_foreground"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="50dp"
+                    android:elevation="1dp" />
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/bg_leaderboard1"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="32dp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Sarah"
+                            android:textColor="@color/white" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="950 pts"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
             <ImageView
-                android:layout_marginTop="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_user"
                 android:src="@mipmap/ic_user_foreground"
                 android:layout_width="60dp"
-                android:layout_height="60dp"/>
+                android:layout_height="60dp"
+                android:elevation="1dp"
+                android:layout_marginBottom="10dp"/>
             <LinearLayout
                 android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="#CD7F32"
-                android:orientation="vertical">
-
+                android:layout_height="90dp"
+                android:background="@drawable/bg_leaderboard3"
+                android:orientation="vertical"
+                android:layout_gravity="bottom">
                 <TextView
-                    android:layout_width="20dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
                     android:text="3"
-                    android:textSize="32dp"
-                    android:textStyle="bold">
-
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white">
                 </TextView>
-
                 <TextView
-                    android:layout_width="33dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:text="Sarah" />
-
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Sarah"
+                    android:textColor="@color/white"/>
                 <TextView
-                    android:layout_width="37dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:paddingLeft="5dp"
-                    android:text="850 pts" />
+                    android:text="850 pts"
+                    android:textColor="@color/white"/>
             </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
+        <ImageView
+            android:layout_marginRight="-55dp"
+            android:layout_marginBottom="-50dp"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:src="@drawable/phaohoa"
+            android:rotation="-40"/>
+    </FrameLayout>
    <LinearLayout
        android:layout_marginTop="70dp"
        android:orientation="vertical"
