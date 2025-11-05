@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
 
@@ -9,17 +10,56 @@
         android:background="#4CAF50"
         android:layout_width="match_parent"
         android:layout_height="100dp">
-        <ImageView
-            android:src="@mipmap/ic_cup_foreground"
-            android:layout_width="40dp"
-            android:layout_height="30dp"/>
-        <TextView
-            android:textStyle="bold"
-            android:textSize="24dp"
-            android:textColor="#FFFFFF"
-            android:text=" Leaderboard"
-            android:layout_width="150dp"
-            android:layout_height="30dp"/>
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_option"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/icon_back"
+                android:src="@drawable/backward_solid_full"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                app:tint="#FFFFFF"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:src="@mipmap/ic_cup_foreground"
+                android:layout_width="40dp"
+                android:layout_height="30dp"/>
+            <TextView
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:textColor="#FFFFFF"
+                android:text=" Leaderboard"
+                android:layout_width="150dp"
+                android:layout_height="30dp"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_marginLeft="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            >
+            <ImageView
+                android:background="@drawable/bars_solid_full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:background="#0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
