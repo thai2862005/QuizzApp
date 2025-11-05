@@ -61,7 +61,7 @@ public class login extends AppCompatActivity {
                             prefs.edit().putString("token", token).apply();
 
                             Toast.makeText(login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(login.this, categories_Screen.class));
+                            startActivity(new Intent(login.this, MainActivity.class));
                             finish();
                         } else {
                             Toast.makeText(login.this,
