@@ -1,19 +1,20 @@
 package com.example.quizzapp;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import Auth.AuthToken;
 
 public class QuizzQuestion extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+
+        if (!AuthToken.checkAuth(this)) {
+            finish(); // đóng activity này lại
+            return;
+        }
+
         setContentView(R.layout.activity_quizz_question);
     }
 }

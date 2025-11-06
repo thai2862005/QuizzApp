@@ -83,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_btn">
                     <Button
+                        android:id="@+id/leaderboard"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="#0000"
@@ -93,6 +94,16 @@
                 </FrameLayout>
 
             </LinearLayout>
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/clear"
+                android:layout_width="240dp"
+                android:layout_height="70dp"
+                android:textColor="@android:color/white"
+                android:text="Clear token"
+                android:textStyle="bold">
+
+            </Button>
             <View
                 android:layout_width="120dp"
                 android:layout_height="120dp"
