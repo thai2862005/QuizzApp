@@ -1,9 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:background="#E6E6FA"
     android:layout_height="match_parent">
-
+   <LinearLayout
+       android:paddingTop="30dp"
+       android:background="#4CAF50"
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="100dp">
+       <include layout="@layout/back_button"  />
+       <View
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           />
+       <include layout="@layout/menu_button"/>
+   </LinearLayout>
     <RelativeLayout
 
         android:layout_marginTop="60dp"
