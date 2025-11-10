@@ -2,53 +2,120 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <LinearLayout
-       android:orientation="vertical"
-       android:layout_width="match_parent"
-       android:layout_height="300dp">
-       <TextView
-           android:textSize="20dp"
-           android:textColor="#000"
-           android:paddingTop="30dp"
-           android:text="Username or email anddress"
-           android:layout_width="match_parent"
-           android:layout_height="60dp"/>
-       <EditText
-           android:id="@+id/etUsername"
-           android:hint="Tên đăng nhập"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content" />
-       <TextView
-           android:textSize="20dp"
-           android:textColor="#000"
-           android:paddingTop="20dp"
-           android:text="Password"
-           android:layout_width="match_parent"
-           android:layout_height="50dp"/>
-       <EditText
-           android:id="@+id/etPassword"
-           android:hint="Mật khẩu"
-           android:inputType="textPassword"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
 
+        <RelativeLayout
+            android:background="@drawable/circle_main"
+            android:layout_gravity="center"
+            android:layout_width="110dp"
+            android:layout_height="110dp">
 
-       <RelativeLayout
-           android:layout_marginTop="20dp"
-           android:background="@drawable/btn_back"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <Button
-               android:background="#0000"
-               android:id="@+id/btnLogin"
-               android:text="Đăng nhập"
-               android:textColor="#4CAF50"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-                />
-       </RelativeLayout>
-   </LinearLayout>
+            <ImageView
+                android:src="@mipmap/hoi_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:background="#0000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingLeft="40dp"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:text="Welcome Back!"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+            <TextView
+                android:text="Sign in to continue your quiz journey"
+                android:layout_width="match_parent"
+                android:textSize="20dp"
+                android:paddingLeft="20dp"
+                android:textColor="#666666"
+                android:layout_height="70dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:paddingTop="30dp"
+            android:text="Username or email address"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/etUsername"
+            android:hint="Tên đăng nhập"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:paddingTop="20dp"
+            android:text="Password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etPassword"
+                android:hint="********"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/outline_accessible_off" />
+        </RelativeLayout>
+
+        <!-- Nút Sign In -->
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:textSize="20dp"
+                android:background="#0000"
+                android:id="@+id/btnLogin"
+                android:text="Sign In"
+                android:textColor="#FFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tvSignUp"
+            android:text="Don't have an account? Sign Up"
+            android:textSize="18sp"
+            android:textColorHighlight="#3F51B5"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </LinearLayout>
