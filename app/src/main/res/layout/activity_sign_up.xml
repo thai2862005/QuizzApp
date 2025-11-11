@@ -110,7 +110,7 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/outline_accessible_off" />
+                    android:drawableEnd="@drawable/eye_solid_full" />
             </RelativeLayout>
 
             <!-- Xác nhận mật khẩu -->
@@ -131,7 +131,7 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/outline_accessible_off" />
+                    android:drawableEnd="@drawable/eye_solid_full" />
             </RelativeLayout>
 
             <!-- Nút Sign Up -->
