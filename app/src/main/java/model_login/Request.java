@@ -1,4 +1,4 @@
-package model;
+package model_login;
 
 public class Request {
     private  String email;

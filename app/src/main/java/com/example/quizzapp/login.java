@@ -10,13 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import API.ApiClient;
 import API.ApiService;
-import model.Request;
-import model.Respone;
+import model_login.Request;
+import model_login.Respone;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
