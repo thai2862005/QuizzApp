@@ -1,8 +1,10 @@
 package com.example.quizzapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import Auth.AuthToken;
@@ -15,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Window window = getWindow();
+        window.setStatusBarColor(Color.TRANSPARENT); // Làm trong suốt status bar
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         ldboadrd = findViewById(R.id.leaderboard);
         ldboadrd.setOnClickListener(new View.OnClickListener() {
             @Override
