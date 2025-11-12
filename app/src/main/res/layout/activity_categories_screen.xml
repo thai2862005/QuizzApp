@@ -9,36 +9,19 @@
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_height="100dp">
-       <include layout="@layout/back_button"  />
-       <View
+       <include layout="@layout/back_button" />
+       <TextView
            android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="1"
-           />
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="20dp"
+           android:text="Choose Category"
+           android:textColor="@color/white"
+           android:textStyle="bold"
+           android:gravity="center"
+           android:textSize="24sp"
+           android:layout_weight="1"/>
        <include layout="@layout/menu_button"/>
    </LinearLayout>
-    <RelativeLayout
-
-        android:layout_marginTop="60dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-        <ImageButton
-            android:background="@drawable/bg_ct"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
-        </ImageButton>
-        <TextView
-
-            android:paddingLeft="90dp"
-            android:paddingTop="25dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="24dp"
-            android:text="Choose Category"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </TextView>
-    </RelativeLayout>
 
     <LinearLayout
         android:orientation="vertical"

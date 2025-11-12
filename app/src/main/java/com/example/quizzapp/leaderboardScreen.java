@@ -4,26 +4,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 import Auth.AuthToken;
 
 public class leaderboardScreen extends AppCompatActivity {
 
+    ListView lvLeaderBoard;
+    ArrayList<LB_items> arrLBitems;
+    LB_Adapter adapter;
     Button btnshow;
     Button btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!AuthToken.checkAuth(this)) {
-            finish();
-            return;
-        }
-
+//        if (!AuthToken.checkAuth(this)) {
+//            finish();
+//            return;
+//        }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_leaderboard_screen);
 
@@ -50,5 +56,21 @@ public class leaderboardScreen extends AppCompatActivity {
                 popupWindow.showAsDropDown(v, 0, -40);
             }
         });
+//         ----- ListView -----
+        lvLeaderBoard = findViewById(R.id.lv_leaderboard);
+//        Dữ liệu mẫu
+        arrLBitems = new ArrayList<>();
+        arrLBitems.add(new LB_items("4","Hoang Hong Thai","700 points"));
+        arrLBitems.add(new LB_items("5","Hoang ","700 points"));
+        arrLBitems.add(new LB_items("6","Hoang Hong Thai","700 points"));
+        arrLBitems.add(new LB_items("7","Hong Thai","700 points"));
+        arrLBitems.add(new LB_items("8","Hoang Thai","700 points"));
+        arrLBitems.add(new LB_items("8"," Thai","700 points"));
+        arrLBitems.add(new LB_items("9","Nhi pro","700 points"));
+        arrLBitems.add(new LB_items("10","mega live","700 points"));
+
+        adapter = new LB_Adapter(this,R.layout.item_leaderboard,arrLBitems);
+        lvLeaderBoard.setAdapter(adapter);
+
     }
 }
