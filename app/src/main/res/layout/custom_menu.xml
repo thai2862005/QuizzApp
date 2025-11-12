@@ -6,7 +6,7 @@
     android:paddingVertical="8dp"
     android:background="@drawable/bg_popup"
     android:elevation="80dp"
-    android:layout_marginTop="420dp">
+    >
     <Button
         android:layout_width="100dp"
         android:layout_height="20dp"
@@ -24,6 +24,7 @@
             android:textSize="20sp"
             android:layout_marginTop="10dp"></TextView>
         <ImageButton
+            android:id="@+id/btnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/circle_xmark_solid_full"

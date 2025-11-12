@@ -1,8 +1,11 @@
 package com.example.quizzapp;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
@@ -38,16 +41,16 @@ public class leaderboardScreen extends AppCompatActivity {
         btnshow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View popupView = getLayoutInflater().inflate(R.layout.custom_menu, null);
-
+                CustomMenu customMenu = new CustomMenu(leaderboardScreen.this);
                 PopupWindow popupWindow = new PopupWindow(
-                        popupView,
+                        customMenu,
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         true
                 );
-
-                popupWindow.showAsDropDown(v, 0, -40);
+                popupWindow.setOutsideTouchable(true);
+                popupWindow.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+                popupWindow.showAsDropDown(v, 0, -20);
             }
         });
     }
