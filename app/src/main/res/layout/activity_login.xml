@@ -88,7 +88,7 @@
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/eye_solid_full" />
+                android:drawableEnd="@drawable/outline_accessible_off" />
         </RelativeLayout>
 
         <!-- Nút Sign In -->

@@ -62,6 +62,10 @@ public class leaderboardScreen extends AppCompatActivity {
 //         ----- ListView -----
         lvLeaderBoard = findViewById(R.id.lv_leaderboard);
 //        Dữ liệu mẫu
+        //data
+        //name
+        //sum
+
         arrLBitems = new ArrayList<>();
         arrLBitems.add(new LB_items("4","Hoang Hong Thai","700 points"));
         arrLBitems.add(new LB_items("5","Hoang ","700 points"));

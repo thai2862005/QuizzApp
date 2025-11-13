@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="10dp"
+    android:padding="15dp"
     android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -18,7 +18,6 @@
             android:layout_gravity="center"
             android:layout_width="110dp"
             android:layout_height="110dp">
-
             <ImageView
                 android:src="@mipmap/hoi_1"
                 android:layout_width="match_parent"
@@ -110,7 +109,7 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/eye_solid_full" />
+                    android:drawableEnd="@drawable/outline_accessible_off" />
             </RelativeLayout>
 
             <!-- Xác nhận mật khẩu -->
@@ -131,7 +130,7 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/eye_solid_full" />
+                    android:drawableEnd="@drawable/outline_accessible_off" />
             </RelativeLayout>
 
             <!-- Nút Sign Up -->
