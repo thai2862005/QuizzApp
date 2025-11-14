@@ -49,7 +49,7 @@ public class signUp extends AppCompatActivity {
         tvSignIn = findViewById(R.id.txtSignin);
 
         // Init API
-        api = ApiClient.getClient().create(ApiService.class);
+        api = ApiClient.getClient(this).create(ApiService.class);
 
         // Toggle password visibility
         etPassword.setOnTouchListener((v, event) -> {
