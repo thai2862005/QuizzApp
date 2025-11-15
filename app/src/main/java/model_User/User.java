@@ -17,6 +17,11 @@ public class User {
     public String getEmail() { return email; }
     public int getRoleId() { return roleId; }
     public int getSum() { return sum; }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
     public List<Result> getResults() { return results; }
 }
 

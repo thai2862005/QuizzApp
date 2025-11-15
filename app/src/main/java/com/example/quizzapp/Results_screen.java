@@ -24,6 +24,10 @@ public class Results_screen extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnTryAgain = findViewById(R.id.btnTryAgain);
         btnBack.setOnClickListener(v -> finish());
+        btnTryAgain.setOnClickListener(v -> {
+            Intent intent = new Intent(Results_screen.this, categories_Screen.class);
+            startActivity(intent);
+        });
         btnshow = findViewById(R.id.btnshow);
         btnshow.setOnClickListener(v -> {
             View popupView = getLayoutInflater().inflate(R.layout.custom_menu, null);

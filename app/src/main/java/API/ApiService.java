@@ -16,7 +16,8 @@ public interface ApiService {
     Call<AccountResponse> getAccount();
     @GET("/api/top-7-10-scores")
     Call<UserResponse> getTopScoresNext();
-
+    @GET("/api/top-scores")
+    Call<UserResponse> getTopScore();
     @POST("/api/login")
     Call<Respone> login(@Body Request request);
 
