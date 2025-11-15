@@ -80,6 +80,7 @@
                         </TextView>
 
                         <TextView
+                            android:id="@+id/tvTop2Name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -87,6 +88,7 @@
                             android:textColor="@color/white"/>
 
                         <TextView
+                            android:id="@+id/tvTop2Point"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -127,12 +129,14 @@
                             android:textSize="32dp"
                             android:textStyle="bold"/>
                         <TextView
+                            android:id="@+id/tvTop1Name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Sarah"
                             android:textColor="@color/white" />
                         <TextView
+                            android:id="@+id/tvTop1Point"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -175,12 +179,14 @@
                     android:textColor="@color/white">
                 </TextView>
                 <TextView
+                    android:id="@+id/tvTop3Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Sarah"
                     android:textColor="@color/white"/>
                 <TextView
+                    android:id="@+id/tvTop3Point"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
