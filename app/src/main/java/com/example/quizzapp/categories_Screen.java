@@ -27,8 +27,7 @@ public class categories_Screen extends AppCompatActivity {
         }
 
         btnshow = findViewById(R.id.btnshow);
-        btnBack = findViewById(R.id.btnBack);
-        btnBackMenu = findViewById(R.id.btnback);
+        btnBack = findViewById(R.id.btnback);
         btnBack.setOnClickListener(v -> finish());
 
         btnshow.setOnClickListener(v -> {
