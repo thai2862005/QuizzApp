@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ECEFF1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_itemquizz">
+        <TextView
+            android:id="@+id/idCauHoi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Câu 1"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/ndCauHoi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What is the capital of VietNam?"
+            android:gravity="left"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#CBD2E0"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chỉ chọn 1 đáp án đúng"
+                android:background="@color/white"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+        <RadioGroup
+            android:id="@+id/rdGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/rdA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="A. LonDon"
+                android:textSize="18sp"/>
+            <RadioButton
+                android:id="@+id/rdB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="B. HaNoi"
+                android:textSize="18sp"/>
+            <RadioButton
+                android:id="@+id/rdC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="C. Paris"
+                android:textSize="18sp"/>
+            <RadioButton
+                android:id="@+id/rdD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="D. Tokyo"
+                android:textSize="18sp"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+</LinearLayout>

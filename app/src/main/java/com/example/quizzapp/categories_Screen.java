@@ -21,10 +21,10 @@ public class categories_Screen extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_categories_screen);
 
-        if (!AuthToken.checkAuth(this)) {
-            finish();
-            return;
-        }
+//        if (!AuthToken.checkAuth(this)) {
+//            finish();
+//            return;
+//        }
 
         btnshow = findViewById(R.id.btnshow);
         btnBack = findViewById(R.id.btnBack);
