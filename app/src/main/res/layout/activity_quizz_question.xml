@@ -4,6 +4,7 @@
     android:background="#FAFAFA"
     android:layout_height="match_parent"
     >
+
     <LinearLayout
         android:layout_marginTop="30dp"
         android:id="@+id/progressContainer"

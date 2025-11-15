@@ -1,16 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:layout_marginLeft="40dp">
+    android:layout_marginRight="20dp"
+    android:background="@drawable/bg_btn_menu"
+    android:layout_marginLeft="20dp">
 
     <ImageView
         android:id="@+id/icon_menu"
         android:layout_centerInParent="true"
-        android:background="@drawable/outline_apps_24"
+        android:background="@drawable/outline_grid_view_24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
+        android:clickable="true"
+        android:focusable="true"
         android:id="@+id/btnshow"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
