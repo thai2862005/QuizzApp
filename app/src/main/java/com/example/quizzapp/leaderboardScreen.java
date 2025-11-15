@@ -115,3 +115,7 @@ public class leaderboardScreen extends AppCompatActivity {
         });
     }
 }
+
+
+// thêm logic load top và api top score 1 2 3
+//tái sử dụng lại fetch account user

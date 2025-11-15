@@ -1,19 +1,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="50dp"
     android:layout_height="50dp"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/bg_user"
     >
 
-    <ImageView
-        android:id="@+id/icon_menu"
-        android:layout_centerInParent="true"
-        android:background="@drawable/square_caret_left_solid_full"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+   <TextView
+       android:paddingLeft="15dp"
+       android:textSize="35dp"
+       android:background="@drawable/chevron_left_solid_full"
+       android:layout_width="50dp"
+       android:layout_height="50dp"/>
     <Button
-        android:rotation="180"
+        android:clickable="true"
+        android:focusable="true"
         android:id="@+id/btnback"
-        android:background="@android:color/transparent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:rotation="180" />
+
 </RelativeLayout>

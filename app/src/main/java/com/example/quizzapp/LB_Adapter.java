@@ -46,7 +46,7 @@ public class LB_Adapter extends ArrayAdapter<LB_items> {
         tvRank.setText(lb.getRank());
         tvName.setText(lb.getName());
         tvPoints.setText(lb.getPoints());
-
+//tái sử dụng ở top score
         if (lb.getUserId() == currentUserId) {
             linearOp.setBackgroundResource(R.drawable.bg_op_true);
             frameOp.setBackgroundResource(R.drawable.bg_op4);
@@ -57,7 +57,7 @@ public class LB_Adapter extends ArrayAdapter<LB_items> {
 
             tvName.setTextColor(Color.BLACK);
             tvPoints.setTextColor(Color.GRAY);
-            tvRank.setTextColor(Color.WHITE);
+            tvRank.setTextColor(Color.WHITE );
         } else {
             linearOp.setBackgroundResource(R.drawable.bg_op1);
 

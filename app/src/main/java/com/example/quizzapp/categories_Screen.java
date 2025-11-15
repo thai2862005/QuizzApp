@@ -13,7 +13,7 @@ import Auth.AuthToken;
 
 public class categories_Screen extends AppCompatActivity {
     Button btnshow;
-    Button btnBack;
+    Button btnBack,btnBackMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,8 @@ public class categories_Screen extends AppCompatActivity {
         }
 
         btnshow = findViewById(R.id.btnshow);
-        btnBack = findViewById(R.id.btnback);
-
+        btnBack = findViewById(R.id.btnBack);
+        btnBackMenu = findViewById(R.id.btnback);
         btnBack.setOnClickListener(v -> finish());
 
         btnshow.setOnClickListener(v -> {
