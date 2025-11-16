@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
     <RelativeLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="#FAFAFA">
@@ -15,7 +16,7 @@
             <include layout="@layout/back_button"/>
 <!--            //phần của anh quân làm tư duy đỉnh cao-->
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="230dp"
                 android:layout_height="0dp"></TextView>
             <include layout="@layout/menu_button"></include>
         </LinearLayout>

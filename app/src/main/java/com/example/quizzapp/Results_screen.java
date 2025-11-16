@@ -15,25 +15,33 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Results_screen extends AppCompatActivity {
         Button btnBack,btnTryAgain;
-        Button btnshow;
+        Button btnshow,backToMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_results_screen);
         btnBack = findViewById(R.id.btnBack);
+        backToMenu = findViewById(R.id.btnback);
         btnTryAgain = findViewById(R.id.btnTryAgain);
-        btnBack.setOnClickListener(v -> finish());
+        //back to home
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Results_screen.this, MainActivity.class);
+            startActivity(intent);
+        });
+        //back menu
+        backToMenu.setOnClickListener(v -> {
+            finish();
+        });
         btnTryAgain.setOnClickListener(v -> {
             Intent intent = new Intent(Results_screen.this, categories_Screen.class);
             startActivity(intent);
         });
         btnshow = findViewById(R.id.btnshow);
         btnshow.setOnClickListener(v -> {
-            View popupView = getLayoutInflater().inflate(R.layout.custom_menu, null);
-
+            CustomMenu customMenu = new CustomMenu(Results_screen.this);
             PopupWindow popupWindow = new PopupWindow(
-                    popupView,
+                    customMenu,
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     true

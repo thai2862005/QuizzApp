@@ -31,10 +31,9 @@ public class categories_Screen extends AppCompatActivity {
         btnBack.setOnClickListener(v -> finish());
 
         btnshow.setOnClickListener(v -> {
-            View popupView = getLayoutInflater().inflate(R.layout.custom_menu, null);
-
+            CustomMenu customMenu = new CustomMenu(categories_Screen.this);
             PopupWindow popupWindow = new PopupWindow(
-                    popupView,
+                    customMenu,
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     true
