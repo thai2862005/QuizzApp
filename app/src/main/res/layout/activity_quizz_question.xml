@@ -2,11 +2,46 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="#FAFAFA"
-    android:layout_height="match_parent"
-    >
-
+    android:layout_height="match_parent">
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_clock_foreground"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="30:00"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_submit">
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:backgroundTint="#0000"
+                android:textSize="15sp"
+                android:text="Nộp bài"/>
+        </FrameLayout>
+
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/progressContainer"
         android:layout_width="match_parent"
         android:layout_height="20dp"
@@ -14,232 +49,10 @@
         android:background="#B0BEC5"
         android:weightSum="10">
     </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_width="320dp"
-        android:layout_height="200dp">
-        <TextView
-            android:paddingLeft="5dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="What is the capital
-                   of VietNam?"
-            android:layout_width="182dp"
-            android:layout_height="54dp"/>
-    </LinearLayout>
-    <RelativeLayout
-        android:layout_gravity="center"
-        android:layout_width="320dp"
-        android:layout_height="70dp">
-
-        <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_op1"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp">
-
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_option">
-                </ImageButton>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="7dp"
-                    android:text="A"
-                    android:textColor="#666666"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingTop="15dp"
-                android:text="London"
-                android:textColor="#333333"
-                android:textSize="16dp"></TextView>
-        </LinearLayout>
-        <Button
-            android:background="#0000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </Button>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_margin="20dp"
-        android:layout_gravity="center"
-        android:layout_width="320dp"
-        android:layout_height="70dp">
-
-        <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_op_true"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp">
-
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_true">
-                </ImageButton>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="7dp"
-                    android:text="B"
-                    android:textColor="#FFFF"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingTop="15dp"
-                android:text="Ha Noi"
-                android:textColor="#333333"
-                android:textSize="16dp"></TextView>
-        </LinearLayout>
-        <Button
-            android:background="#0000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </Button>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_gravity="center"
-        android:layout_width="320dp"
-        android:layout_height="70dp">
-
-        <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_op1"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp">
-
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_option">
-                </ImageButton>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="7dp"
-                    android:text="C"
-                    android:textColor="#666666"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingTop="15dp"
-                android:text="Paris"
-                android:textColor="#333333"
-                android:textSize="16dp"></TextView>
-        </LinearLayout>
-        <Button
-            android:background="#0000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </Button>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_margin="20dp"
-        android:layout_gravity="center"
-        android:layout_width="320dp"
-        android:layout_height="70dp">
-
-        <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_op1"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp">
-
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_option">
-                </ImageButton>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="7dp"
-                    android:text="D"
-                    android:textColor="#666666"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingTop="15dp"
-                android:text="Tokyo"
-                android:textColor="#333333"
-                android:textSize="16dp"></TextView>
-        </LinearLayout>
-        <Button
-            android:background="#0000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </Button>
-    </RelativeLayout>
-
+    <ListView
+        android:id="@+id/lvQuizz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#0000"
+        />
 </LinearLayout>
