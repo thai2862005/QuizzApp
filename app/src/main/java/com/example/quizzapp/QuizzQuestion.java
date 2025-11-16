@@ -1,5 +1,6 @@
 package com.example.quizzapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +32,8 @@ public class QuizzQuestion extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_categories_screen);
+                Intent intent = new Intent(QuizzQuestion.this, categories_Screen.class);
+                startActivity(intent);
             }
         });
 //        Dữ liệu mẫu
