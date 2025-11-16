@@ -2,7 +2,7 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="app.quiz_question_screen">
+      <SelectionState runConfigName="app.results_screen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="app">
@@ -11,7 +11,7 @@
       <SelectionState runConfigName="app.categories_screen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="app.results_screen">
+      <SelectionState runConfigName="app.quiz_question_screen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

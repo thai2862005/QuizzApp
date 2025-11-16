@@ -78,13 +78,17 @@
                             android:textStyle="bold"
                             android:textColor="@color/white">
                         </TextView>
-
-                        <TextView
-                            android:id="@+id/tvTop2Name"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvTop2Name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/tvTop2Point"
@@ -126,12 +130,17 @@
                             android:textColor="@color/white"
                             android:textSize="32dp"
                             android:textStyle="bold"/>
-                        <TextView
-                            android:id="@+id/tvTop1Name"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textColor="@color/white" />
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvTop1Name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvTop1Point"
                             android:layout_width="match_parent"
@@ -174,12 +183,17 @@
                     android:textStyle="bold"
                     android:textColor="@color/white">
                 </TextView>
-                <TextView
-                    android:id="@+id/tvTop3Name"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvTop3Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
                 <TextView
                     android:id="@+id/tvTop3Point"
                     android:layout_width="match_parent"
