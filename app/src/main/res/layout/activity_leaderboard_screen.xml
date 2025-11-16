@@ -84,7 +84,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Sarah"
                             android:textColor="@color/white"/>
 
                         <TextView
@@ -92,7 +91,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="850 pts"
                             android:textColor="@color/white" />
                     </LinearLayout>
             </FrameLayout>
@@ -133,14 +131,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Sarah"
                             android:textColor="@color/white" />
                         <TextView
                             android:id="@+id/tvTop1Point"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="950 pts"
                             android:textColor="@color/white" />
                     </LinearLayout>
             </FrameLayout>
@@ -183,7 +179,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Sarah"
                     android:textColor="@color/white"/>
                 <TextView
                     android:id="@+id/tvTop3Point"
@@ -191,7 +186,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingLeft="5dp"
-                    android:text="850 pts"
                     android:textColor="@color/white"/>
             </LinearLayout>
             </FrameLayout>
