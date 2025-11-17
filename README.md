@@ -105,9 +105,9 @@ Dự án sẽ tự động tải các phụ thuộc cần thiết. Nếu cần, 
 
 ## 🏗️ Cấu trúc dự án
 
+
+
 ```
-
-
 
 ├── 📁 app/
 │   ├── 📁 categories_screen/
@@ -746,7 +746,7 @@ Dự án sẽ tự động tải các phụ thuộc cần thiết. Nếu cần, 
 ├── 📄 gradlew.bat
 └── 📄 settings.gradle
 
-────────────────────────────────────────────────────────────────────────────────
+
 
 ### Kiến trúc Modular
 Dự án sử dụng kiến trúc **multi-module** để tách biệt các tính năng:
@@ -755,7 +755,7 @@ Dự án sử dụng kiến trúc **multi-module** để tách biệt các tính
 - **quiz_question_screen**: Mô-đun tính năng cho câu hỏi quiz
 - **results_screen**: Mô-đun tính năng cho hiển thị kết quả
 
----
+```
 
 ## 🔧 Công nghệ được sử dụng
 
