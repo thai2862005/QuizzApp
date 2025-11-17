@@ -748,6 +748,7 @@ Dự án sẽ tự động tải các phụ thuộc cần thiết. Nếu cần, 
 
 
 
+```
 ### Kiến trúc Modular
 Dự án sử dụng kiến trúc **multi-module** để tách biệt các tính năng:
 - **app**: Mô-đun chính chứa logic ứng dụng cốt lõi
@@ -755,7 +756,6 @@ Dự án sử dụng kiến trúc **multi-module** để tách biệt các tính
 - **quiz_question_screen**: Mô-đun tính năng cho câu hỏi quiz
 - **results_screen**: Mô-đun tính năng cho hiển thị kết quả
 
-```
 
 ## 🔧 Công nghệ được sử dụng
 
