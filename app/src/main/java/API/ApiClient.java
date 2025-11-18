@@ -14,7 +14,6 @@ public class ApiClient {
 
     public static Retrofit getClient(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("QuizzApp", Context.MODE_PRIVATE);
-        String token = prefs.getString("token", "");
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -22,23 +21,26 @@ public class ApiClient {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(logging)
                 .addInterceptor(chain -> {
+                    String token = prefs.getString("token", ""); // 🔥 LẤY TOKEN MỖI LẦN
                     Request original = chain.request();
                     Request.Builder requestBuilder = original.newBuilder();
+
                     if (!token.isEmpty()) {
                         requestBuilder.addHeader("Authorization", "Bearer " + token);
                     }
-                    Request request = requestBuilder.build();
-                    return chain.proceed(request);
+
+                    return chain.proceed(requestBuilder.build());
                 })
                 .build();
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:4000/") // localhost Android emulator
+                    .baseUrl("http://10.0.2.2:4000/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();
         }
+
         return retrofit;
     }
 }
