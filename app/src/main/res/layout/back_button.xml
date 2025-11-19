@@ -8,7 +8,7 @@
    <TextView
        android:paddingLeft="15dp"
        android:textSize="35dp"
-       android:background="@drawable/chevron_left_solid_full"
+       android:background="@drawable/arrow_left_solid_full__2_"
        android:layout_width="50dp"
        android:layout_height="50dp"/>
     <Button

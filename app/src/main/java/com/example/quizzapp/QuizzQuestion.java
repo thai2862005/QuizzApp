@@ -5,43 +5,99 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import Auth.AuthToken;
+import API.ApiClient;
+import API.ApiService;
+import model_quizz.Answer;
+import model_quizz.Question;
+import model_quizz.Quiz;
+import model_quizz.QuizzRespone;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class QuizzQuestion extends AppCompatActivity {
+
     ListView lvQuizz;
     ArrayList<Quizz_items> arrQuizzs;
     Quizz_Adapter adapter;
+    ApiService api;
     Button btnSubmit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-//        if (!AuthToken.checkAuth(this)) {
-//            finish(); // đóng activity này lại
-//            return;
-//        }
         setContentView(R.layout.activity_quizz_question);
-//        Sự kiện Submit (Nộp bài)
+
+        lvQuizz = findViewById(R.id.lvQuizz);
         btnSubmit = findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+
+        // Sự kiện Submit (Nộp bài)
+        btnSubmit.setOnClickListener(v -> {
+            Intent intent = new Intent(QuizzQuestion.this, Results_screen.class);
+            startActivity(intent);
+        });
+
+        loadQuizzData();
+    }
+
+    private void loadQuizzData() {
+        api = ApiClient.getClient(this).create(ApiService.class);
+
+        api.getQuizzRespone().enqueue(new Callback<QuizzRespone>() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuizzQuestion.this, categories_Screen.class);
-                startActivity(intent);
+            public void onResponse(Call<QuizzRespone> call, Response<QuizzRespone> response) {
+                if (!response.isSuccessful() || response.body() == null) {
+                    Toast.makeText(QuizzQuestion.this, "Lỗi server", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<Quiz> quizzes = response.body().getQuizzes();
+                if (quizzes == null || quizzes.isEmpty()) {
+                    Toast.makeText(QuizzQuestion.this, "Không có quiz nào", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                arrQuizzs = new ArrayList<>();
+                Quiz quiz = quizzes.get(0);
+                for (Question q : quiz.getQuestions()) {
+                    String A = "", B = "", C = "", D = "";
+
+                    List<Answer> answers = q.getAnswers();
+                    if (answers.size() >= 4) {
+                        A = answers.get(0).getContent();
+                        B = answers.get(1).getContent();
+                        C = answers.get(2).getContent();
+                        D = answers.get(3).getContent();
+                    }
+                    //fetch data rồi thêm vào danh sách truyền vào list view
+                    arrQuizzs.add(new Quizz_items(
+                            "Câu " + q.getId(),
+                            q.getContent(),
+                            "A. " + A,
+                            "B. " + B,
+                            "C. " + C,
+                            "D. " + D
+                    ));
+                }
+
+                adapter = new Quizz_Adapter(QuizzQuestion.this, R.layout.item_quizz, arrQuizzs);
+                lvQuizz.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<QuizzRespone> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(QuizzQuestion.this, "Lỗi kết nối API", Toast.LENGTH_SHORT).show();
             }
         });
-//        Dữ liệu mẫu
-        lvQuizz = findViewById(R.id.lvQuizz);
-        arrQuizzs = new ArrayList<>();
-        arrQuizzs.add(new Quizz_items("Câu 1","What is the capital of VietNam?","A. LonDon","B. HaNoi","C. Paris","D. Tokyo"));
-        arrQuizzs.add(new Quizz_items("Câu 2","1 + 1 = ?","A. 11","B. 2","C. 3","D. 0"));
-        adapter = new Quizz_Adapter(this, R.layout.item_quizz, arrQuizzs);
-        lvQuizz.setAdapter(adapter);
     }
 }
