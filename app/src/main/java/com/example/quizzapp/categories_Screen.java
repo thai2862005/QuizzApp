@@ -4,16 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 import Auth.AuthToken;
 
 public class categories_Screen extends AppCompatActivity {
     Button btnshow;
     Button btnBack,btnBackMenu;
+    ArrayList<Categories_Items> arrCate;
+    Categories_Adapter adapter;
+    ListView lv_categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +47,10 @@ public class categories_Screen extends AppCompatActivity {
 
             popupWindow.showAsDropDown(v, 0, -40);
         });
+        lv_categories = findViewById(R.id.lv_categories);
+        arrCate = new ArrayList<>();
+        arrCate.add(new Categories_Items("Science","20 Questions",R.mipmap.ic_king_foreground));
+        adapter = new Categories_Adapter(this, R.layout.item_categories, arrCate);
+        lv_categories.setAdapter(adapter);
     }
 }

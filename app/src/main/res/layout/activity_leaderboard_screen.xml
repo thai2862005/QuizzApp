@@ -214,11 +214,12 @@
             android:src="@drawable/phaohoa"
             android:rotation="-40"/>
     </FrameLayout>
+
     <ListView
         android:id="@+id/lv_leaderboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:padding="20dp"
-        android:divider="#0000"/>
+        android:divider="#0000"
+        android:padding="20dp" />
 </LinearLayout>
