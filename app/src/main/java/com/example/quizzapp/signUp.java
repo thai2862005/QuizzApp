@@ -26,7 +26,7 @@ public class signUp extends AppCompatActivity {
 
     EditText etName, etEmail, etPassword, etConfirmPassword;
     Button btnSignUp;
-    TextView tvSignIn;
+    TextView tvSignIn,txtBacktohome;
     ApiService api;
     boolean isPasswordVisible = false;
     boolean isConfirmPasswordVisible = false;
@@ -41,6 +41,7 @@ public class signUp extends AppCompatActivity {
         window.setNavigationBarColor(Color.TRANSPARENT);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         // Init views
+        txtBacktohome = findViewById(R.id.txtBacktohome);
         etName = findViewById(R.id.etFullName);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -79,7 +80,11 @@ public class signUp extends AppCompatActivity {
             startActivity(new Intent(signUp.this, login.class));
             finish();
         });
+        txtBacktohome.setOnClickListener(v -> {
+            Intent intent =  new Intent(signUp.this, MainActivity.class);
+            startActivity(intent);
 
+        });
         // Handle SignUp
         btnSignUp.setOnClickListener(v -> {
             String name = etName.getText().toString().trim();

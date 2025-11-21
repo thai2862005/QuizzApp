@@ -30,7 +30,7 @@ public class QuizzQuestion extends AppCompatActivity {
     Quizz_Adapter adapter;
     ApiService api;
     Button btnSubmit;
-
+    int quizzId = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,12 @@ public class QuizzQuestion extends AppCompatActivity {
 
         lvQuizz = findViewById(R.id.lvQuizz);
         btnSubmit = findViewById(R.id.btnSubmit);
-
+        quizzId = getIntent().getIntExtra("categoryId", -1);
+        if (quizzId == -1) {
+            Toast.makeText(this, "Không tìm thấy Quiz ID", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
         // Sự kiện Submit (Nộp bài)
         btnSubmit.setOnClickListener(v -> {
             Intent intent = new Intent(QuizzQuestion.this, Results_screen.class);
@@ -65,20 +70,35 @@ public class QuizzQuestion extends AppCompatActivity {
                     Toast.makeText(QuizzQuestion.this, "Không có quiz nào", Toast.LENGTH_SHORT).show();
                     return;
                 }
+//logic lọc theo id
+                Quiz quizTarget = null;
+                for (Quiz q : quizzes) {
+                    if (q.getId() == quizzId) {   // lọc quizId = 1
+                        quizTarget = q;
+                        break;
+                    }
+                }
+
+                if (quizTarget == null) {
+                    Toast.makeText(QuizzQuestion.this, "Không tìm thấy quizId = 1", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 arrQuizzs = new ArrayList<>();
-                Quiz quiz = quizzes.get(0);
-                for (Question q : quiz.getQuestions()) {
+
+                for (Question q : quizTarget.getQuestions()) {
+
                     String A = "", B = "", C = "", D = "";
 
                     List<Answer> answers = q.getAnswers();
+
                     if (answers.size() >= 4) {
                         A = answers.get(0).getContent();
                         B = answers.get(1).getContent();
                         C = answers.get(2).getContent();
                         D = answers.get(3).getContent();
                     }
-                    //fetch data rồi thêm vào danh sách truyền vào list view
+
                     arrQuizzs.add(new Quizz_items(
                             "Câu " + q.getId(),
                             q.getContent(),

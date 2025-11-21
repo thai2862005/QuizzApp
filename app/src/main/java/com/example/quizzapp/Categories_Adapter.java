@@ -34,6 +34,9 @@ public class Categories_Adapter extends ArrayAdapter<Categories_Items> {
         CateImg.setImageResource(c.getCateImg());
         CateName.setText(c.getCateName());
         CateQ.setText(c.getCateQ());
+        CateImg.setFocusable(false);
+        CateImg.setFocusableInTouchMode(false);
+        CateImg.setClickable(false);
         return row;
     }
 }

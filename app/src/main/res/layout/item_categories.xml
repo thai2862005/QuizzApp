@@ -1,64 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-    android:orientation="vertical">
-    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:background="@drawable/border_rd"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <!-- ICON -->
+        <ImageButton
+            android:id="@+id/CateImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_op"
+            android:src="@mipmap/ic_kinh_foreground"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="false" />
+
+        <!-- TEXT -->
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:background="@drawable/border_rd"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
-            <ImageButton
-                android:id="@+id/CateImg"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:src="@mipmap/ic_kinh_foreground"
-                android:background="@drawable/bg_op"
-                android:layout_width="60dp"
-                android:layout_height="60dp">
-            </ImageButton>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="150dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/CateName"
-                    android:paddingTop="20dp"
-                    android:paddingLeft="40dp"
-                    android:textSize="20dp"
-                    android:text="Science"
-                    android:textStyle="bold"
-                    android:textColor="#1976D2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-                </TextView>
-                <TextView
-                    android:id="@+id/CateQ"
-                    android:layout_marginLeft="30dp"
-                    android:textColor="#666666"
-                    android:textSize="16dp"
-                    android:text="20 Questions"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-                </TextView>
-            </LinearLayout>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="20dp">
+
             <TextView
-                android:id="@+id/CateButton"
-                android:paddingLeft="15dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="#1976D2"
-                android:text=">"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-            </TextView>
+                android:id="@+id/CateName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Science"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1976D2" />
+
+            <TextView
+                android:id="@+id/CateQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 Questions"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:paddingTop="5dp" />
         </LinearLayout>
 
-    </RelativeLayout>
+        <!-- ARROW -->
+        <TextView
+            android:id="@+id/CateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">"
+            android:textColor="#1976D2"
+            android:textSize="30sp"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="false" />
+    </LinearLayout>
 
 </LinearLayout>

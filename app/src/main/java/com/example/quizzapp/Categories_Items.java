@@ -3,11 +3,17 @@ package com.example.quizzapp;
 public class Categories_Items {
     private String CateName, CateQ;
     private Integer CateImg;
+    private Integer CateId;
 
-    public Categories_Items(String cateName, String cateQ, Integer cateImg) {
+    public Categories_Items(Integer cateId, String cateName, String cateQ, Integer cateImg) {
+        CateId = cateId;
         CateName = cateName;
         CateQ = cateQ;
         CateImg = cateImg;
+    }
+
+    public Integer getCateId() {
+        return CateId;
     }
 
     public String getCateName() {
@@ -22,5 +28,3 @@ public class Categories_Items {
         return CateImg;
     }
 }
-
-

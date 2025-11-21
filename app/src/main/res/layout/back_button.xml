@@ -1,23 +1,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
     android:layout_marginLeft="20dp"
-    android:background="@drawable/bg_user"
-    >
+    android:layout_marginTop="10dp"
+    android:background="@drawable/bg_user">
 
-   <TextView
-       android:paddingLeft="15dp"
-       android:textSize="35dp"
-       android:background="@drawable/arrow_left_solid_full__2_"
-       android:layout_width="50dp"
-       android:layout_height="50dp"/>
+    <!-- Icon mũi tên -->
+    <ImageView
+        android:id="@+id/arrowIcon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/arrow_left_solid_full__2_" />
+
+    <!-- Nút click nằm đè lên -->
     <Button
-        android:clickable="true"
-        android:focusable="true"
         android:id="@+id/btnback"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
         android:rotation="180" />
-
 </RelativeLayout>

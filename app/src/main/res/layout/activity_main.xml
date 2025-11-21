@@ -95,12 +95,13 @@
 
             </LinearLayout>
             <Button
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:id="@+id/clear"
                 android:layout_width="240dp"
                 android:layout_height="70dp"
                 android:textColor="@android:color/white"
-                android:text="Clear token"
+                android:text="Log out"
                 android:textStyle="bold">
 
             </Button>

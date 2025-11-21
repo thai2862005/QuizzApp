@@ -1,25 +1,34 @@
 package com.example.quizzapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import Auth.AuthToken;
+import API.ApiClient;
+import API.ApiService;
+import model_quizz.Quiz;
+import model_quizz.QuizzRespone;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class categories_Screen extends AppCompatActivity {
-    Button btnshow;
-    Button btnBack,btnBackMenu;
+
+    Button btnshow, btnBack;
     ArrayList<Categories_Items> arrCate;
     Categories_Adapter adapter;
     ListView lv_categories;
+    ApiService api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +36,10 @@ public class categories_Screen extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_categories_screen);
 
-//        if (!AuthToken.checkAuth(this)) {
-//            finish();
-//            return;
-//        }
-
         btnshow = findViewById(R.id.btnshow);
         btnBack = findViewById(R.id.btnback);
+        lv_categories = findViewById(R.id.lv_categories);
+
         btnBack.setOnClickListener(v -> finish());
 
         btnshow.setOnClickListener(v -> {
@@ -44,13 +50,73 @@ public class categories_Screen extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     true
             );
-
             popupWindow.showAsDropDown(v, 0, -40);
         });
-        lv_categories = findViewById(R.id.lv_categories);
+
         arrCate = new ArrayList<>();
-        arrCate.add(new Categories_Items("Science","20 Questions",R.mipmap.ic_king_foreground));
         adapter = new Categories_Adapter(this, R.layout.item_categories, arrCate);
         lv_categories.setAdapter(adapter);
+
+        lv_categories.setOnItemClickListener((parent, view, position, id) -> {
+            Categories_Items item = arrCate.get(position);
+            Intent intent = new Intent(categories_Screen.this, QuizzQuestion.class);
+            intent.putExtra("categoryId", item.getCateId());
+            startActivity(intent);
+        });
+
+        loadCateData();
     }
+
+    private void loadCateData() {
+        api = ApiClient.getClient(this).create(ApiService.class);
+        api.getQuizzRespone().enqueue(new Callback<QuizzRespone>() {
+            @Override
+            public void onResponse(Call<QuizzRespone> call, Response<QuizzRespone> response) {
+                if (!response.isSuccessful() || response.body() == null) {
+                    Toast.makeText(categories_Screen.this, "Server error", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<Quiz> quizzes = response.body().getQuizzes();
+                if (quizzes == null || quizzes.isEmpty()) {
+                    Toast.makeText(categories_Screen.this, "Không có quiz nào", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                arrCate.clear();
+
+                for (Quiz q : quizzes) {
+                    int totalQuestions = (q.getQuestions() != null) ? q.getQuestions().size() : 0;
+
+                    arrCate.add(new Categories_Items(
+                            q.getId(),
+                            q.getTitle(),
+                            totalQuestions + " Questions",
+                            R.drawable.ranking_star_solid_full
+//                            getIconByQuizId(q.getId()) // icon thay đổi theo ID
+                    ));
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<QuizzRespone> call, Throwable t) {
+                Toast.makeText(categories_Screen.this, "API Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // Icon thay đổi theo ID
+//    private int getIconByQuizId(int id) {
+//        int mod = id % 5;
+//        switch (mod) {
+//            case 0: return R.mipmap.ic_cat0;
+//            case 1: return R.mipmap.ic_cat1;
+//            case 2: return R.mipmap.ic_cat2;
+//            case 3: return R.mipmap.ic_cat3;
+//            case 4: return R.mipmap.ic_cat4;
+//        }
+//        return R.mipmap.ic_cat_default;
+//    }
 }

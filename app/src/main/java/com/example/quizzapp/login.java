@@ -28,7 +28,7 @@ public class login extends AppCompatActivity {
     EditText etUsername, etPassword;
     Button btnLogin;
     ApiService api;
-    TextView tvSignUp;
+    TextView tvSignUp,tvBacktohome;
     boolean isPasswordVisible = false;
 
     @Override
@@ -42,6 +42,7 @@ public class login extends AppCompatActivity {
         window.getDecorView().setSystemUiVisibility(android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
         // Bind views
+        tvBacktohome = findViewById(R.id.tvBacktohome);
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -68,6 +69,10 @@ public class login extends AppCompatActivity {
                 }
             }
             return false;
+        });
+        tvBacktohome.setOnClickListener(v -> {
+            Intent intent = new Intent(login.this, MainActivity.class);
+            startActivity(intent);
         });
 
         tvSignUp.setOnClickListener(v -> startActivity(new Intent(login.this, signUp.class)));
