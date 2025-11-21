@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class Categories_Adapter extends ArrayAdapter<Categories_Items> {
         LayoutInflater inflater = context.getLayoutInflater();
         View row = inflater.inflate(layoutID, null);
 
-        ImageButton CateImg = row.findViewById(R.id.CateImg);
+        ImageView CateImg = row.findViewById(R.id.CateImg);
         TextView CateName = row.findViewById(R.id.CateName);
         TextView CateQ = row.findViewById(R.id.CateQ);
         LinearLayout rowLayout = row.findViewById(R.id.row_layout);
@@ -35,7 +36,6 @@ public class Categories_Adapter extends ArrayAdapter<Categories_Items> {
         CateImg.setImageResource(c.getCateImg());
         CateName.setText(c.getCateName());
         CateQ.setText(c.getCateQ());
-        row.setBackgroundColor(c.getBackgroundColor());
         CateImg.setFocusable(false);
         CateImg.setFocusableInTouchMode(false);
         CateImg.setClickable(false);

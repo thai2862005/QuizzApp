@@ -89,15 +89,7 @@ public class categories_Screen extends AppCompatActivity {
                     int totalQuestions = (q.getQuestions() != null) ? q.getQuestions().size() : 0;
 
                     // Chọn màu nền
-                    int bgColor;
-                    switch (q.getId() % 5) {
-                        case 0: bgColor = 0xFFE57373; break;
-                        case 1: bgColor = 0xFF64B5F6; break;
-                        case 2: bgColor = 0xFF81C784; break;
-                        case 3: bgColor = 0xFFFFB74D; break;
-                        case 4: bgColor = 0xFFBA68C8; break;
-                        default: bgColor = 0xFFFFFFFF; break;
-                    }
+
 
                     // Chọn icon theo ID (ví dụ)
                     int iconRes;
@@ -114,8 +106,8 @@ public class categories_Screen extends AppCompatActivity {
                             q.getId(),
                             q.getTitle(),
                             totalQuestions + " Questions",
-                            iconRes,    // icon thay đổi
-                            bgColor
+                            iconRes   // icon thay đổi
+
                     ));
                 }
 
