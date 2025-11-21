@@ -88,14 +88,37 @@ public class categories_Screen extends AppCompatActivity {
                 for (Quiz q : quizzes) {
                     int totalQuestions = (q.getQuestions() != null) ? q.getQuestions().size() : 0;
 
+                    // Chọn màu nền
+                    int bgColor;
+                    switch (q.getId() % 5) {
+                        case 0: bgColor = 0xFFE57373; break;
+                        case 1: bgColor = 0xFF64B5F6; break;
+                        case 2: bgColor = 0xFF81C784; break;
+                        case 3: bgColor = 0xFFFFB74D; break;
+                        case 4: bgColor = 0xFFBA68C8; break;
+                        default: bgColor = 0xFFFFFFFF; break;
+                    }
+
+                    // Chọn icon theo ID (ví dụ)
+                    int iconRes;
+                    switch (q.getId()) {
+                        case 1: iconRes = R.drawable.icon_java; break;
+                        case 2: iconRes = R.drawable.icon_js; break;
+                        case 3: iconRes = R.drawable.icon_c; break;
+                        case 4: iconRes = R.drawable.icon_python; break;
+                        default: iconRes = R.drawable.ranking_star_solid_full; break;
+                    }
+
+
                     arrCate.add(new Categories_Items(
                             q.getId(),
                             q.getTitle(),
                             totalQuestions + " Questions",
-                            R.drawable.ranking_star_solid_full
-//                            getIconByQuizId(q.getId()) // icon thay đổi theo ID
+                            iconRes,    // icon thay đổi
+                            bgColor
                     ));
                 }
+
 
                 adapter.notifyDataSetChanged();
             }
@@ -106,17 +129,4 @@ public class categories_Screen extends AppCompatActivity {
             }
         });
     }
-
-    // Icon thay đổi theo ID
-//    private int getIconByQuizId(int id) {
-//        int mod = id % 5;
-//        switch (mod) {
-//            case 0: return R.mipmap.ic_cat0;
-//            case 1: return R.mipmap.ic_cat1;
-//            case 2: return R.mipmap.ic_cat2;
-//            case 3: return R.mipmap.ic_cat3;
-//            case 4: return R.mipmap.ic_cat4;
-//        }
-//        return R.mipmap.ic_cat_default;
-//    }
 }
