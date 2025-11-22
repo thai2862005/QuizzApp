@@ -1,11 +1,14 @@
 package com.example.quizzapp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -27,25 +30,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import android.os.CountDownTimer;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
-
-
 public class QuizzQuestion extends AppCompatActivity {
-    private TextView tvTimer;
-    private CountDownTimer countDownTimer;
-
-    private static final long TOTAL_TIME = 30 * 60 * 1000;
-
 
     ListView lvQuizz;
     ArrayList<Quizz_items> arrQuizzs;
     Quizz_Adapter adapter;
     ApiService api;
+
     Button btnSubmit;
     int quizzId = -1;
+
+    // -------------------- TIMER --------------------
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis = 600_000;
+    private TextView timerText;
+    private boolean isTimeUp = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +59,10 @@ public class QuizzQuestion extends AppCompatActivity {
 
         lvQuizz = findViewById(R.id.lvQuizz);
         btnSubmit = findViewById(R.id.btnSubmit);
-        tvTimer = findViewById(R.id.timer);
-        startTimer();
+        timerText = findViewById(R.id.timer);
 
         quizzId = getIntent().getIntExtra("categoryId", -1);
+
         if (quizzId == -1) {
             Toast.makeText(this, "Không tìm thấy Quiz ID", Toast.LENGTH_SHORT).show();
             finish();
@@ -71,49 +70,53 @@ public class QuizzQuestion extends AppCompatActivity {
         }
 
         btnSubmit.setOnClickListener(v -> submitQuiz());
+
+        startTimer();  //Bắt đầu chạy Time
+
         loadQuizzData();
     }
-
+//logic start time
     private void startTimer() {
-        countDownTimer = new CountDownTimer(TOTAL_TIME, 1000) {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                int seconds = (int) (millisUntilFinished / 1000);
-                int minutes = seconds / 60;
-                int remainSeconds = seconds % 60;
-
-                String timeFormatted = String.format("%02d:%02d", minutes, remainSeconds);
-                tvTimer.setText(timeFormatted);
+                timeLeftInMillis = millisUntilFinished;
+                updateTimerText();
             }
 
             @Override
             public void onFinish() {
+                isTimeUp = true;
                 showTimeUpDialog();
             }
         }.start();
     }
+//update time
+    private void updateTimerText() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
 
+        String timeFormatted = String.format("%02d:%02d", minutes, seconds);
+        timerText.setText(timeFormatted);
+    }
+    //hiển thị khi hết thời gian
     private void showTimeUpDialog() {
-
         new AlertDialog.Builder(this)
-                .setTitle("Hết thời gian")
-                .setMessage("Thời gian làm bài đã hết. Bài sẽ được nộp.")
+                .setTitle("Hết thời gian!")
+                .setMessage("Thời gian làm bài đã kết thúc.\nHệ thống sẽ tự động nộp bài.")
                 .setCancelable(false)
-                .setPositiveButton("OK", (dialog, which) -> {
-                    submitQuiz();
-                })
+                .setPositiveButton("OK", (dialog, which) -> submitQuiz())
                 .show();
     }
 
+    // Nếu user thoát giữa chừng -> hủy Timer
     @Override
-    protected void onDestroy() {
+    protected  void onDestroy() {
         super.onDestroy();
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
+        if (countDownTimer != null) countDownTimer.cancel();
     }
 
-
+//load data câu hỏi
     private void loadQuizzData() {
         api = ApiClient.getClient(this).create(ApiService.class);
 
@@ -181,6 +184,8 @@ public class QuizzQuestion extends AppCompatActivity {
     }
 
     private void submitQuiz() {
+        if (countDownTimer != null) countDownTimer.cancel();
+
         int score = 0;
         for (Quizz_items item : arrQuizzs) {
             if (item.userChoice == item.correctIndex) {
@@ -209,8 +214,7 @@ public class QuizzQuestion extends AppCompatActivity {
             public void onResponse(Call<ResponeSave> call, Response<ResponeSave> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(QuizzQuestion.this, "Điểm đã lưu: " + score, Toast.LENGTH_SHORT).show();
-                    Log.d("SAVE_SCORE", "Điểm lưu thành công: " + score);
-                    // Chuyển sang màn kết quả ngay sau khi lưu
+
                     Intent intent = new Intent(QuizzQuestion.this, Results_screen.class);
                     intent.putExtra("score", score);
                     intent.putExtra("total", arrQuizzs.size() * 20);
@@ -218,17 +222,12 @@ public class QuizzQuestion extends AppCompatActivity {
                     finish();
                 } else {
                     Toast.makeText(QuizzQuestion.this, "Lưu điểm thất bại", Toast.LENGTH_SHORT).show();
-                    try {
-                        Log.e("SAVE_SCORE", "Lỗi: code " + response.code() +
-                                ", body: " + response.errorBody().string());
-                    } catch (Exception e) { e.printStackTrace(); }
                 }
             }
 
             @Override
             public void onFailure(Call<ResponeSave> call, Throwable t) {
                 Toast.makeText(QuizzQuestion.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("SAVE_SCORE", "Lỗi kết nối: " + t.getMessage());
             }
         });
     }
