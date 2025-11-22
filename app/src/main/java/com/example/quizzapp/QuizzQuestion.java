@@ -27,7 +27,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.os.CountDownTimer;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+
+
 public class QuizzQuestion extends AppCompatActivity {
+    private TextView tvTimer;
+    private CountDownTimer countDownTimer;
+
+    private static final long TOTAL_TIME = 30 * 60 * 1000;
+
 
     ListView lvQuizz;
     ArrayList<Quizz_items> arrQuizzs;
@@ -49,6 +60,8 @@ public class QuizzQuestion extends AppCompatActivity {
 
         lvQuizz = findViewById(R.id.lvQuizz);
         btnSubmit = findViewById(R.id.btnSubmit);
+        tvTimer = findViewById(R.id.timer);
+        startTimer();
 
         quizzId = getIntent().getIntExtra("categoryId", -1);
         if (quizzId == -1) {
@@ -60,6 +73,46 @@ public class QuizzQuestion extends AppCompatActivity {
         btnSubmit.setOnClickListener(v -> submitQuiz());
         loadQuizzData();
     }
+
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(TOTAL_TIME, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int seconds = (int) (millisUntilFinished / 1000);
+                int minutes = seconds / 60;
+                int remainSeconds = seconds % 60;
+
+                String timeFormatted = String.format("%02d:%02d", minutes, remainSeconds);
+                tvTimer.setText(timeFormatted);
+            }
+
+            @Override
+            public void onFinish() {
+                showTimeUpDialog();
+            }
+        }.start();
+    }
+
+    private void showTimeUpDialog() {
+
+        new AlertDialog.Builder(this)
+                .setTitle("Hết thời gian")
+                .setMessage("Thời gian làm bài đã hết. Bài sẽ được nộp.")
+                .setCancelable(false)
+                .setPositiveButton("OK", (dialog, which) -> {
+                    submitQuiz();
+                })
+                .show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
+
 
     private void loadQuizzData() {
         api = ApiClient.getClient(this).create(ApiService.class);
