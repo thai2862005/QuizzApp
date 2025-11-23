@@ -122,7 +122,7 @@ public class login extends AppCompatActivity {
                     SharedPreferences prefs = getSharedPreferences("QuizzApp", MODE_PRIVATE);
                     prefs.edit().putInt("userId", userId).commit();
                     Toast.makeText(login.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(login.this, leaderboardScreen.class));
+                    startActivity(new Intent(login.this, categories_Screen.class));
                     finish();
                 }
             }

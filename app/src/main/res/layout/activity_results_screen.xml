@@ -70,10 +70,7 @@
     </RelativeLayout>
 
     <!-- Content wrapped in ScrollView -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -290,5 +287,4 @@
             </RelativeLayout>
 
         </LinearLayout>
-    </ScrollView>
 </RelativeLayout>
