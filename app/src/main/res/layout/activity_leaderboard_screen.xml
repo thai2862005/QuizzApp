@@ -219,7 +219,7 @@
         android:id="@+id/lv_leaderboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:divider="#0000"
         android:padding="20dp" />
 </LinearLayout>

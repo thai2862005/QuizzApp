@@ -2,6 +2,7 @@ package com.example.quizzapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -10,28 +11,28 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Results_screen extends AppCompatActivity {
 
-    Button btnBack, btnTryAgain, btnshow, backToMenu;
+    Button btnBackhome,btnshow, btnTryAgain;
     TextView tvScore, tvTotal, tvAccuracy, tvTime, tvMessage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_results_screen);
+
         Window window = getWindow();
         window.setStatusBarColor(Color.TRANSPARENT);
         window.setNavigationBarColor(Color.TRANSPARENT);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        // set up id
+
+        btnBackhome = findViewById(R.id.btnBackhome);
         btnshow = findViewById(R.id.btnshow);
-        btnBack = findViewById(R.id.btnBack);
         btnTryAgain = findViewById(R.id.btnTryAgain);
-        backToMenu = findViewById(R.id.btnback);
+
         tvScore = findViewById(R.id.tvScore);
         tvTotal = findViewById(R.id.tvTotal);
         tvAccuracy = findViewById(R.id.tvAccuracy);
@@ -44,11 +45,10 @@ public class Results_screen extends AppCompatActivity {
         long timeLeftInMillis = getIntent().getLongExtra("timeUsed", 0);
         long timeUsedInMillis = 600_000 - timeLeftInMillis;
 
-        // Tính thời gian
+        //dùng lại
         int minutes = (int) (timeUsedInMillis / 1000) / 60;
         int seconds = (int) (timeUsedInMillis / 1000) % 60;
         String timeFormatted = String.format("%02d:%02d", minutes, seconds);
-
         int scoreafter = score / 20;
         int sum = total / 20;
 
@@ -57,41 +57,34 @@ public class Results_screen extends AppCompatActivity {
 
         int accuracy = (total > 0) ? (score * 100 / total) : 0;
         tvAccuracy.setText(accuracy + "%");
+
         tvTime.setText(timeFormatted);
 
         String message;
         int color;
         if (accuracy >= 90) {
             message = "Đế vương là phải có long ngai! 🔥";
-            color = Color.parseColor("#4CAF50");
+            color = Color.parseColor("#4CAF50"); // xanh lá
         } else if (accuracy >= 70) {
             message = "Amazing! Good job, gần được rồi!! 😎";
-            color = Color.parseColor("#FF9800");
+            color = Color.parseColor("#FF9800"); // cam
         } else if (accuracy >= 50) {
             message = "Cũng khá ổn, nhưng còn gà lắm! 😉";
-            color = Color.parseColor("#FFC107");
+            color = Color.parseColor("#FFC107"); // vàng
         } else {
             message = "Còn gà lắm! 😅";
-            color = Color.parseColor("#F44336");
+            color = Color.parseColor("#F44336"); // đỏ
         }
-
         tvMessage.setText(message);
         tvMessage.setTextColor(color);
 
-        // Sự kiện nút
-        backToMenu.setOnClickListener(v -> finish());
-
-        btnBack.setOnClickListener(v -> {
-            startActivity(new Intent(Results_screen.this, MainActivity.class));
+        // Back to Home
+        btnBackhome.setOnClickListener(v -> {
+            Intent intent = new Intent(Results_screen.this, MainActivity.class);
+            startActivity(intent);
             finish();
         });
-
-        btnTryAgain.setOnClickListener(v -> {
-            startActivity(new Intent(Results_screen.this, categories_Screen.class));
-            finish();
-        });
-
-        btnshow.setOnClickListener(v -> {
+        btnshow.setOnClickListener(v ->{
             CustomMenu customMenu = new CustomMenu(Results_screen.this);
             PopupWindow popupWindow = new PopupWindow(
                     customMenu,
@@ -99,7 +92,16 @@ public class Results_screen extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     true
             );
-            popupWindow.showAsDropDown(btnshow);
+            popupWindow.setOutsideTouchable(true);
+            popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            popupWindow.showAsDropDown(v, 0, -20);
+        });
+
+        // Try Again
+        btnTryAgain.setOnClickListener(v -> {
+            Intent intent = new Intent(Results_screen.this, categories_Screen.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
