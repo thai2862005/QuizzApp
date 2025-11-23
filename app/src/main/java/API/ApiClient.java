@@ -21,7 +21,7 @@ public class ApiClient {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(logging)
                 .addInterceptor(chain -> {
-                    String token = prefs.getString("token", ""); // 🔥 LẤY TOKEN MỖI LẦN
+                    String token = prefs.getString("token", "");
                     Request original = chain.request();
                     Request.Builder requestBuilder = original.newBuilder();
 
@@ -39,6 +39,12 @@ public class ApiClient {
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();
+//            retrofit = new Retrofit.Builder()
+//                    .baseUrl("https://be-quizz-app-7.onrender.com/")
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .client(client)
+//                    .build();
+
         }
 
         return retrofit;

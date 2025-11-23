@@ -218,6 +218,7 @@ public class QuizzQuestion extends AppCompatActivity {
                     Intent intent = new Intent(QuizzQuestion.this, Results_screen.class);
                     intent.putExtra("score", score);
                     intent.putExtra("total", arrQuizzs.size() * 20);
+                    intent.putExtra("timeUsed", timeLeftInMillis);
                     startActivity(intent);
                     finish();
                 } else {
@@ -232,3 +233,4 @@ public class QuizzQuestion extends AppCompatActivity {
         });
     }
 }
+    

@@ -16,6 +16,7 @@ import java.util.List;
 
 import API.ApiClient;
 import API.ApiService;
+import Auth.AuthToken;
 import model_quizz.Quiz;
 import model_quizz.QuizzRespone;
 import retrofit2.Call;
@@ -39,7 +40,10 @@ public class categories_Screen extends AppCompatActivity {
         btnshow = findViewById(R.id.btnshow);
         btnBack = findViewById(R.id.btnback);
         lv_categories = findViewById(R.id.lv_categories);
-
+        if (!AuthToken.checkAuth(this)) {
+            finish();
+            return;
+        }
         btnBack.setOnClickListener(v -> finish());
 
         btnshow.setOnClickListener(v -> {
