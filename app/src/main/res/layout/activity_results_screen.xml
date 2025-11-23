@@ -1,42 +1,35 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="match_parent">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:gravity="right"
+        android:layout_marginTop="25dp">
+        <include layout="@layout/menu_button"/>
+    </LinearLayout>
     <!-- Header -->
     <RelativeLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#FAFAFA">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:paddingTop="10dp">
-
-            <include layout="@layout/back_button"/>
-            <TextView
-                android:layout_width="230dp"
-                android:layout_height="0dp" />
-            <include layout="@layout/menu_button"/>
-        </LinearLayout>
-
+        android:layout_height="wrap_content"
+        >
         <!-- Decorative Circles -->
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:background="#FF9800"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="0dp"
             android:layout_marginLeft="50dp"
             app:shapeAppearance="@style/bg_circleStyle" />
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:background="#2196F3"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="50dp"
             android:layout_marginLeft="80dp"
             app:shapeAppearance="@style/bg_circleStyle"/>
         <com.google.android.material.imageview.ShapeableImageView
@@ -44,36 +37,33 @@
             android:layout_height="12dp"
             android:background="#9C27B0"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             app:shapeAppearance="@style/bg_circleStyle"/>
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:background="#FFEB3B"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="260dp"
             app:shapeAppearance="@style/bg_circleStyle"/>
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="14dp"
             android:layout_height="14dp"
             android:background="#F44336"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="55dp"
             android:layout_marginLeft="300dp"
             app:shapeAppearance="@style/bg_circleStyle"/>
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:background="#4CAF50"
-            android:layout_marginTop="95dp"
+            android:layout_marginTop="25dp"
             android:layout_marginLeft="340dp"
             app:shapeAppearance="@style/bg_circleStyle"/>
     </RelativeLayout>
 
     <!-- Content wrapped in ScrollView -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -86,7 +76,7 @@
             <LinearLayout
                 android:background="@drawable/bg_cirle"
                 android:layout_gravity="center"
-                android:layout_marginTop="150dp"
+
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_width="100dp"
@@ -140,7 +130,7 @@
 
             <!-- Score Box -->
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:background="#FFFFFF"
                 android:layout_gravity="center"
                 android:orientation="vertical"
@@ -283,12 +273,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <Button
-                    android:id="@+id/btnBack"
+                    android:id="@+id/btnBackhome"
                     android:background="@android:color/transparent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </RelativeLayout>
 
         </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+
+</LinearLayout>

@@ -39,11 +39,7 @@ public class ApiClient {
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();
-//            retrofit = new Retrofit.Builder()
-//                    .baseUrl("https://be-quizz-app-7.onrender.com/")
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .client(client)
-//                    .build();
+
 
         }
 

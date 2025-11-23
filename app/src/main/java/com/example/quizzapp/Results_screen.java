@@ -2,23 +2,35 @@ package com.example.quizzapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Results_screen extends AppCompatActivity {
 
-    Button btnBack, btnTryAgain;
+    Button btnBackhome,btnshow, btnTryAgain;
     TextView tvScore, tvTotal, tvAccuracy, tvTime, tvMessage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_screen);
 
-        btnBack = findViewById(R.id.btnBack);
+        Window window = getWindow();
+        window.setStatusBarColor(Color.TRANSPARENT);
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+
+        btnBackhome = findViewById(R.id.btnBackhome);
+        btnshow = findViewById(R.id.btnshow);
         btnTryAgain = findViewById(R.id.btnTryAgain);
 
         tvScore = findViewById(R.id.tvScore);
@@ -67,10 +79,22 @@ public class Results_screen extends AppCompatActivity {
         tvMessage.setTextColor(color);
 
         // Back to Home
-        btnBack.setOnClickListener(v -> {
+        btnBackhome.setOnClickListener(v -> {
             Intent intent = new Intent(Results_screen.this, MainActivity.class);
             startActivity(intent);
             finish();
+        });
+        btnshow.setOnClickListener(v ->{
+            CustomMenu customMenu = new CustomMenu(Results_screen.this);
+            PopupWindow popupWindow = new PopupWindow(
+                    customMenu,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    true
+            );
+            popupWindow.setOutsideTouchable(true);
+            popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            popupWindow.showAsDropDown(v, 0, -20);
         });
 
         // Try Again
